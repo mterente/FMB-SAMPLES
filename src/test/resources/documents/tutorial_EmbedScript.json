@@ -1,0 +1,130 @@
+{
+  "documents": [
+    {
+      "dealStamp": "Option_Document_1",
+      "script": "tutorial_EUadvanced",
+      "maturity_date": "2019-04-25",
+      "strike": 43,
+      "value_date": "2017-04-25",
+      "stockdata": {
+        "currency": "USD",
+        "instrument": "EQUITY",
+        "name": "COCA_COLA"
+      }
+    }
+  ],
+  "pricingData": {
+    "dates": [
+      "2017-04-25"
+    ],
+    "scenarioData": [
+      {
+        "id": {
+          "type": "Volatility",
+          "parameters": [
+            "COCA_COLA"
+          ]
+        },
+        "points": {
+          "2017-04-25": [
+            {
+              "values": [
+                0.0221
+              ]
+            }
+          ]
+        },
+        "metaData": {}
+      },
+      {
+        "id": {
+          "type": "DIVIDEND",
+          "parameters": [
+            "COCA_COLA",
+            "CONTINUOUS"
+          ]
+        },
+        "points": {
+          "2017-04-25": [
+            {
+              "values": [
+                0.01
+              ]
+            }
+          ]
+        },
+        "metaData": {}
+      },
+      {
+        "id": {
+          "type": "EQUITY",
+          "parameters": [
+            "COCA_COLA"
+          ]
+        },
+        "points": {
+          "2017-04-25": [
+            {
+              "values": [
+                46
+              ]
+            }
+          ]
+        },
+        "metaData": {}
+      },
+      {
+        "id": {
+          "type": "YIELD_CURVE",
+          "parameters": [
+            "USD-SWAP",
+            "discountFactor"
+          ]
+        },
+        "points": {
+          "2017-04-25": [
+            {
+              "x": 17281,
+              "values": [
+                1
+              ]
+            },
+            {
+              "x": 17301,
+              "values": [
+                0.99865
+              ]
+            },
+            {
+              "x": 17868,
+              "values": [
+                0.99428
+              ]
+            },
+            {
+              "x": 18232,
+              "values": [
+                0.99365
+              ]
+            }
+          ]
+        },
+        "metaData": {
+          "zeroCouponFormula": "exponential",
+          "zeroCouponBasis": "ACT/365.FIXED",
+          "switchDates": [],
+          "currency": "USD",
+          "interpolationMethods": [
+            "linear"
+          ],
+          "interpolationVariables": [
+            "zeroCouponRate"
+          ]
+        }
+      }
+    ],
+    "historicalData": [],
+    "calendars": [],
+    "configuration": {}
+  }  
+}

@@ -1,0 +1,137 @@
+{
+  "dates": [
+    "2017-04-13"
+  ],
+  "scenarioData": [
+    {
+      "id": {
+        "type": "YIELD_CURVE",
+        "parameters": [
+          "discount_Libor_3M",
+          "discountFactor"
+        ]
+      },
+      "points": {
+        "2017-04-13": [
+          {
+            "x": 17269,
+            "values": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "x": 17422,
+            "values": [
+              0.99856,
+              0.99542,
+              0.99874,
+              0.99455,
+              0.99125
+            ]
+          },
+          {
+            "x": 17603,
+            "values": [
+              0.99458,
+              0.98987,
+              0.98542,
+              0.99236,
+              0.98659
+            ]
+          },
+          {
+            "x": 17787,
+            "values": [
+              0.99256,
+              0.98125,
+              0.97985,
+              0.98236,
+              0.98236
+            ]
+          }
+        ]
+      },
+      "metaData": {
+        "zeroCouponFormula": "exponential",
+        "zeroCouponBasis": "ACT/365.FIXED",
+        "switchDates": [ ],
+        "currency": "USD",
+        "interpolationMethods": [
+          "flat"
+        ],
+        "interpolationVariables": [
+          "discountFactor" 
+        ],
+        "curveDate": "2017-04-13"
+      }
+    },
+    {
+      "id": {
+        "type": "YIELD_CURVE",
+        "parameters": [
+          "projection_Libor_3M",
+          "discountFactor"
+        ]
+      },
+      "points": {
+        "2017-04-13": [
+          {
+            "x": 17269,
+            "values": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "x": 17422,
+            "values": [
+              0.99658,
+              0.99658,
+              0.99125,
+              0.99562,
+              0.99987
+            ]
+          },
+          {
+            "x": 17603,
+            "values": [
+              0.99458,
+              0.99542,
+              0.98326,
+              0.99355,
+              0.99531
+            ]
+          },
+          {
+            "x": 17787,
+            "values": [
+              0.99125,
+              0.99235,
+              0.97825,
+              0.99158,
+              0.98962
+            ]
+          }
+        ]
+      },
+      "metaData": {
+        "zeroCouponFormula": "exponential",
+        "zeroCouponBasis": "ACT/365.FIXED",
+        "switchDates": [],
+        "currency": "USD",
+        "interpolationMethods": [
+          "flat"],
+        "interpolationVariables": [
+          "discountFactor"],
+        "curveDate": "2017-04-13"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "associatedScript" : "tutorial_EUadvanced",
+  "marketDataSetName" : "tutorial_EUadvanced.scn",
+  "testName" : "tutorial_EUadvanced_test",
+  "documents" : {
+   "tutorial_EUadvanced.json" : {
+      "expectedResults" : {
+       "2017-04-25" : [ 2.381958194871805 ]
+      }
+    }
+ }
+}

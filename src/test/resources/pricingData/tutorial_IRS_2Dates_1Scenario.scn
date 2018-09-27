@@ -1,0 +1,158 @@
+{
+  "dates": [
+    "2017-04-13",
+    "2017-10-13"
+  ],
+  "scenarioData": [
+    {
+      "id": {
+        "type": "YIELD_CURVE",
+        "parameters": [
+          "discount_Libor_3M",
+          "discountFactor"
+        ]
+      },
+      "points": {
+        "2017-04-13": [
+          {
+            "x": 17269,
+            "values": [
+              1
+            ]
+          },
+          {
+            "x": 17422,
+            "values": [
+              0.99856
+            ]
+          },
+          {
+            "x": 17603,
+            "values": [
+              0.99458
+            ]
+          },
+          {
+            "x": 17787,
+            "values": [
+              0.99256
+            ]
+          }
+        ],
+        "2017-10-13": [
+          {
+            "x": 17452,
+            "values": [
+              0.99765
+            ]
+          },
+          {
+            "x": 17603,
+            "values": [
+              0.99125
+            ]
+          },
+          {
+            "x": 17787,
+            "values": [
+              0.98956
+            ]
+          },
+          {
+            "x": 17968,
+            "values": [
+              0.97853
+            ]
+          }
+        ]
+      },
+      "metaData": {
+        "zeroCouponFormula": "exponential",
+        "zeroCouponBasis": "ACT/365.FIXED",
+        "switchDates": [],
+        "currency": "USD",
+        "interpolationMethods": [
+          "flat"
+        ],
+        "interpolationVariables": [
+          "discountFactor"
+        ],
+        "curveDate": "2017-04-13"
+      }
+    },
+    {
+      "id": {
+        "type": "YIELD_CURVE",
+        "parameters": [
+          "projection_Libor_3M",
+          "discountFactor"
+        ]
+      },
+      "points": {
+        "2017-04-13": [
+          {
+            "x": 17269,
+            "values": [
+              1
+            ]
+          },
+          {
+            "x": 17422,
+            "values": [
+              0.99658
+            ]
+          },
+          {
+            "x": 17603,
+            "values": [
+              0.99458
+            ]
+          },
+          {
+            "x": 17787,
+            "values": [
+              0.99125
+            ]
+          }
+        ],
+        "2017-10-13": [
+          {
+            "x": 17452,
+            "values": [
+              0.99765
+            ]
+          },
+          {
+            "x": 17603,
+            "values": [
+              0.99265
+            ]
+          },
+          {
+            "x": 17787,
+            "values": [
+              0.98985
+            ]
+          },
+          {
+            "x": 17968,
+            "values": [
+              0.98659
+            ]
+          }
+        ]
+      },
+      "metaData": {
+        "zeroCouponFormula": "exponential",
+        "zeroCouponBasis": "ACT/365.FIXED",
+        "switchDates": [],
+        "currency": "USD",
+        "interpolationMethods": [
+          "flat"],
+        "interpolationVariables": [
+          "discountFactor"],
+        "curveDate": "2017-04-13"
+      }
+    }
+  ]
+}

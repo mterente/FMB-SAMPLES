@@ -1,0 +1,57 @@
+{
+  "dealStamp": "IRS",
+  "legs": [
+    {
+      "basis": "ACT/365.FIXED",
+      "discountCurve": "discount_Libor_3M",
+      "fixedRate": 0.0175,
+      "indexationType": "fixed",
+      "notional": 100000,
+      "payOrRec": "paying",
+      "schedule": [
+        {
+          "endDate": "2017-06-01",
+          "startDate": "2017-03-01"
+        },
+        {
+          "endDate": "2017-09-01",
+          "startDate": "2017-06-01"
+        },
+        {
+          "endDate": "2017-12-01",
+          "startDate": "2017-09-01"
+        },
+        {
+          "endDate": "2018-03-01",
+          "startDate": "2017-12-01"
+        }
+      ]
+    },
+    {
+      "basis": "ACT/365.FIXED",
+      "discountCurve": "discount_Libor_3M",
+      "indexationType": "floating",
+      "notional": 100000,
+      "payOrRec": "receiving",
+      "projectionCurve": "projection_Libor_3M",
+      "schedule": [
+        {
+          "endDate": "2017-06-01",
+          "startDate": "2017-03-01"
+        },
+        {
+          "endDate": "2017-09-01",
+          "startDate": "2017-06-01"
+        },
+        {
+          "endDate": "2017-12-01",
+          "startDate": "2017-09-01"
+        },
+        {
+          "endDate": "2018-03-01",
+          "startDate": "2017-12-01"
+        }
+      ]
+    }
+  ]
+}

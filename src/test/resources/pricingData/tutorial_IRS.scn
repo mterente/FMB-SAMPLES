@@ -1,0 +1,108 @@
+{
+  "dates" : [
+    "2017-04-13"
+  ],
+  "scenarioData" : [
+    {
+      "id" : {
+        "type" : "YIELD_CURVE",
+        "parameters" : [
+          "discount_Libor_3M",
+          "discountFactor"
+        ]
+      },
+      "points" : {
+        "2017-04-13" : [
+          {
+            "x" : 17269.0,
+            "values" : [
+              1.0
+            ]
+          },
+          {
+            "x" : 17422.0,
+            "values" : [
+              0.99856
+            ]
+          },
+          {
+            "x" : 17603.0,
+            "values" : [
+              0.99458
+            ]
+          },
+          {
+            "x" : 17787.0,
+            "values" : [
+              0.99256
+            ]
+          }
+        ]
+      },
+      "metaData" : {
+        "zeroCouponFormula" : "exponential",
+        "zeroCouponBasis" : "ACT/365.FIXED",
+        "switchDates" : [],
+        "currency" : "USD",
+        "interpolationMethods" : [
+          "flat"
+        ],
+        "interpolationVariables" : [
+          "discountFactor"
+        ]
+      }
+    },
+    {
+      "id" : {
+        "type" : "YIELD_CURVE",
+        "parameters" : [
+          "projection_Libor_3M",
+          "discountFactor"
+        ]
+      },
+      "points" : {
+        "2017-04-13" : [
+          {
+            "x" : 17269.0,
+            "values" : [
+              1.0
+            ]
+          },
+          {
+            "x" : 17422.0,
+            "values" : [
+              0.99658
+            ]
+          },
+          {
+            "x" : 17603.0,
+            "values" : [
+              0.99458
+            ]
+          },
+          {
+            "x" : 17787.0,
+            "values" : [
+              0.99125
+            ]
+          }
+        ]
+      },
+      "metaData" : {
+        "zeroCouponFormula" : "exponential",
+        "zeroCouponBasis" : "ACT/365.FIXED",
+        "switchDates" : [],
+        "currency" : "USD",
+        "interpolationMethods" : [
+          "flat"
+        ],
+        "interpolationVariables" : [
+          "discountFactor"
+        ]
+      }
+    }
+  ],
+  "historicalData" : [ ],
+  "calendars" : [ ],
+  "configuration" : { }
+}
