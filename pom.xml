@@ -14,8 +14,8 @@
    <version>1.0.0-SNAPSHOT</version>
 
    <properties>
-      <fpp.common.library.version>3.1.1</fpp.common.library.version>
-      <fpp.version>3.2.5</fpp.version>
+      <financial.tools.version>2.5.0</financial.tools.version>
+      <fpp.version>3.3.3</fpp.version>
       <fpp.plugin.version>3.0.0.RELEASE</fpp.plugin.version>
       <documentation.dir>${project.build.directory}/documentation</documentation.dir>
    </properties>
@@ -23,14 +23,15 @@
    <dependencyManagement>
       <dependencies>
          <dependency>
-            <groupId>com.trmsys.fpp.library</groupId>
-            <artifactId>fpp-common-library</artifactId>
-            <version>${fpp.common.library.version}</version>
+            <groupId>com.trmsys.pricinganalytics.fqp</groupId>
+            <artifactId>financial-tools</artifactId>
+            <version>${financial.tools.version}</version>
          </dependency>
       </dependencies>
    </dependencyManagement>
 
    <build>
+
       <resources>
          <resource>
             <directory>src/main/resources/library/modules</directory>
@@ -96,11 +97,9 @@
 
    <dependencies>
       <dependency>
-         <groupId>com.trmsys.fpp.library</groupId>
-         <artifactId>fpp-common-library</artifactId>
+         <groupId>com.trmsys.pricinganalytics.fqp</groupId>
+         <artifactId>financial-tools</artifactId>
       </dependency>
    </dependencies>
 
 </project>
-
-
