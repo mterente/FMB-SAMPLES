@@ -52,7 +52,7 @@
             <version>${fpp.plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-               <fppLibraryName>VAAS</fppLibraryName>
+               <fppLibraryName>FMB</fppLibraryName>
                <fppLibraryLocation>src/main/resources/library</fppLibraryLocation>
             </configuration>
          </plugin>
