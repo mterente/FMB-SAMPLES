@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>com.trmsys.cmf.maven</groupId>
+      <artifactId>parent-pom</artifactId>
+      <version>2.2.1.RELEASE</version>
+   </parent>
+
+   <groupId>FMB-SAMPLES</groupId>
+   <artifactId>FMB-SAMPLES</artifactId>
+   <packaging>fpp-lib</packaging>
+   <version>1.0.0-SNAPSHOT</version>
+
+   <properties>
+      <fpp.common.library.version>3.1.1</fpp.common.library.version>
+      <fpp.version>3.2.5</fpp.version>
+      <fpp.plugin.version>3.0.0.RELEASE</fpp.plugin.version>
+      <documentation.dir>${project.build.directory}/documentation</documentation.dir>
+   </properties>
+
+   <dependencyManagement>
+      <dependencies>
+         <dependency>
+            <groupId>com.trmsys.fpp.library</groupId>
+            <artifactId>fpp-common-library</artifactId>
+            <version>${fpp.common.library.version}</version>
+         </dependency>
+      </dependencies>
+   </dependencyManagement>
+
+   <build>
+      <resources>
+         <resource>
+            <directory>src/main/resources/library/modules</directory>
+         </resource>
+         <resource>
+            <directory>src/main/resources/library/scripts</directory>
+         </resource>
+         <resource>
+            <directory>${documentation.dir}</directory>
+            <targetPath>documentation</targetPath>
+         </resource>
+      </resources>
+
+      <plugins>
+         <!-- library plugin -->
+         <plugin>
+            <groupId>com.trmsys.fpp.maven.plugin</groupId>
+            <artifactId>fpp-maven-plugin</artifactId>
+            <version>${fpp.plugin.version}</version>
+            <extensions>true</extensions>
+            <configuration>
+               <fppLibraryName>VAAS</fppLibraryName>
+               <fppLibraryLocation>src/main/resources/library</fppLibraryLocation>
+            </configuration>
+         </plugin>
+         <!-- Groovy documentation -->
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>groovy-doc</id>
+                  <phase>process-resources</phase>
+                  <goals>
+                     <goal>java</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <includeProjectDependencies>false</includeProjectDependencies>
+               <includePluginDependencies>true</includePluginDependencies>
+               <executableDependency>
+                  <groupId>com.trmsys.fpp</groupId>
+                  <artifactId>fpp-script-documentation</artifactId>
+               </executableDependency>
+               <mainClass>com.trmsys.fpp.documentation.GroovyDocGenerator</mainClass>
+               <arguments>
+                  <argument>${project.basedir}/src/main/resources/library/modules</argument>
+                  <argument>${documentation.dir}</argument>
+               </arguments>
+            </configuration>
+            <dependencies>
+               <dependency>
+                  <groupId>com.trmsys.fpp</groupId>
+                  <artifactId>fpp-script-documentation</artifactId>
+                  <version>${fpp.version}</version>
+                  <type>jar</type>
+               </dependency>
+            </dependencies>
+         </plugin>
+      </plugins>
+   </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>com.trmsys.fpp.library</groupId>
+         <artifactId>fpp-common-library</artifactId>
+      </dependency>
+   </dependencies>
+
+</project>
+
+
