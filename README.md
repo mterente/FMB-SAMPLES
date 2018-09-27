@@ -1,6 +1,6 @@
 # FMB-SAMPLES
 
-A set of samples ready to be cloned and modified at will locally
+A set of samples ready to be cloned and modified at will
 
 Installation steps:
 1) setup your SSH Key as explained here <br />
