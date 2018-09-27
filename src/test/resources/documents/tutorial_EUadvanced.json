@@ -1,11 +1,13 @@
 {
+  "type": "call",
   "strike": 43,
   "maturity_date": "2019-04-25",
-  "value_date": "2017-04-25",
+  "value_date": "2017-04-13",
   "dealStamp": "COCA_COLA",
   "stockdata": {
     "name": "COCA_COLA",
     "instrument": "EQUITY",
     "currency": "USD"
-  }
+  },
+  "curve":"projection_Libor_3M"
 }

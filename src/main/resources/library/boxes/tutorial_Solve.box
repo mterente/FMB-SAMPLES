@@ -1,0 +1,68 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Input management
+def request(input){
+    // Create a jackson Object mapper
+    ObjectMapper MAPPER = new ObjectMapper();
+    // Read the input, put it in an ObjectNode node
+    ObjectNode node = (ObjectNode) MAPPER.readTree(input);
+    // Extract the document part from node
+    doc = node["documents"][0]
+}
+
+// Get matrix A
+def heightA = doc.get("A").size()
+def widthA = doc.get("A")[0].size()
+final double[][] A = new double[heightA][widthA];
+for (int i = 0; i < heightA; ++i)
+    for (int j = 0; j < widthA; ++j)
+        A[i][j] = doc.get("A")[i][j].doubleValue()
+
+// get matrix B
+def heightB = doc.get("b").size()
+def widthB = doc.get("b")[0].size()
+final double[][] b = new double[heightB][widthB];
+for (int i = 0; i < heightB; ++i)
+    for (int j = 0; j < widthB; ++j)
+        b[i][j] = doc.get("b")[i][j].doubleValue()
+
+// Get the package to use
+def operation = doc.get("operation").textValue()
+
+// Initialize a Lapack object
+final Lapack lapack = getLapack()
+
+//Main treatment according to the selected method
+switch(operation){
+    case "CHOLESKY":
+     //Solves the linear system with a upper Cholesky Decomposition
+        final double[][] x = lapack.solveCholesky(A, false, b);
+        output("SOLUTION", x.toString())
+        break
+
+    case "LU":
+     //Solves the linear system with LU Decomposition without storing the result of the decomposition
+        final double[][] x = lapack.solveLU(A, b);
+        output("SOLUTION", x.toString())
+        break
+
+    case "QR":
+     //Solves the linear system with a reduce QR Decomposition without storing the result of the decomposition
+        final double[][] x = lapack.solveQR(A, b);
+        output("SOLUTION", x.toString())
+        break
+
+    case "SVD":
+     //Solves the linear system with Singular Value Decomposition without storing the result of the decomposition
+        final double[][] x = lapack.solveSVD(A, b);
+        output("SOLUTION", x.toString())
+        break
+
+    default:
+        output("SOLUTION", "BAD METHOD")
+        break
+    }

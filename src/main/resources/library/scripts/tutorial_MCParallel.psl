@@ -1,0 +1,28 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// time to expiry as a fraction of a year with basis 365
+def tau = yearFraction(value_date, maturity_date, "ACT/365.FIXED", YearFractionParameters()) 
+// spot price
+def S = getEquitySpot(stockdata.name, calculationDate())
+// continuously compounded dividend yield
+def D = data0D("DIVIDEND", [stockdata.name, "CONTINUOUS"], calculationDate())
+// risk-free interest rate
+def r = forwardRate(calculationDate(), maturity_date, metaData("YIELD_CURVE", [curve, "discountFactor"], "zeroCouponBasis"), YearFractionParameters(), curve)
+// volatility
+def vol = data0D("Volatility", [stockdata.name], calculationDate())
+
+// get the normally distributed (0,1) variable
+def brownian = data0D("RANDOM", [], calculationDate())
+
+// compute the payoff of the option using antithetic variables
+def CP = getOptionType(type)
+def payoff1 = max(0,(CP * S * exp((r - D - vol * vol / 2) * tau + brownian * vol * sqrt(tau))) - CP * strike)
+def payoff2 = max(0,(CP * S * exp((r - D - vol * vol / 2) * tau - brownian * vol * sqrt(tau))) - CP * strike)
+def totalpayoff = (payoff1 + payoff2) / 2 
+
+// return the present value of the option 
+return exp(-r * tau) * totalpayoff 

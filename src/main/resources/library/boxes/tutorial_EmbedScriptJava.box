@@ -1,0 +1,32 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import tutorial_package.Tutorial_class;
+ 
+// Inputs management
+ 
+def request(value) {
+    Tutorial_class.init(value)
+    }
+ 
+// Create the dataManager from the pricingData
+DataManager dataManager = DataManagerRestUtils.create(Tutorial_class.pricingData)  
+ 
+// Register the documents assigning them a script
+documents = []
+Tutorial_class.tradeNode.each {
+    def id = it.get("dealStamp").asText()
+    documents.add(new JsonDocument(it.get("script").asText(), it, id)) // Select the script
+}
+ 
+// Run the execution (returns a non ordered map of results)
+resultById = engine().buildSession(dataManager)
+        .process(documents)
+        .collect()  
+        
+// output results
+output("results",Tutorial_class.outputResults(resultById, documents))
+close("results")

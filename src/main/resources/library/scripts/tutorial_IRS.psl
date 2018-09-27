@@ -1,0 +1,45 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Returns the price of an interest rate swap 
+ */
+def npv = 0
+// List of fixed and variable legs
+for (def leg in legs) {
+    
+    // List of cash flows
+    for (def scheduleLine in leg.schedule) {
+               
+        // Discount factor
+        def df = discountFactorFromCurve(leg.discountCurve, scheduleLine.endDate)
+		// Year fraction
+		def dcf = yearFraction(scheduleLine.startDate, scheduleLine.endDate, leg.basis, YearFractionParameters())
+       
+        // Fixed cash flow
+        if (leg.indexationType == "fixed") {
+                    
+            if (leg.payOrRec == "receiving")
+                npv += leg.notional * leg.fixedRate * dcf * df
+            else
+                npv -= leg.notional * leg.fixedRate * dcf * df
+                
+        }
+        // Variable cash flow
+        else {
+
+            def rate = forwardRate(scheduleLine.startDate, scheduleLine.endDate, leg.basis, YearFractionParameters(), leg.projectionCurve)
+                        
+            if (leg.payOrRec == "receiving")
+                npv += leg.notional * rate * dcf * df
+            else
+                npv -= leg.notional * rate * dcf * df
+        
+        }
+    }
+}
+// Net present value
+return npv

@@ -1,0 +1,24 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * This Script is used to price a vanilla equity call option using the Black Scholes Model
+ * It is made to demonstrate knowledge of the structure of the pricingData json file and of the module which is used to define functions.  
+ * You can find more information about the examples in which this script is used in the FMB tutorials
+ * where this psl is also part of a configuration tutorial_EUoptionSingle
+ */
+
+def type = "call" // Type of option
+def S = 200 // Spot price
+def E = 198  // Strike price
+def r = 0.05  // Interest rate
+def vol = 0.2  // Volatility
+def tau = 0.05 //  Time to expiry expressed in year
+def D = 0.0 // Continuously-comp
+
+def Option = getVanillaBS(type, S, E, vol, tau, r, D) 
+
+return Option

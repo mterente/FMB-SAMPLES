@@ -6,7 +6,7 @@
   "historicalData" : [ ],
   "calendars" : [
     {
-      "id" : "VAAS",
+      "id" : "FMB",
       "start" : "2017-03-07",
       "end" : "2017-06-23",
       "dates" : [
@@ -92,7 +92,7 @@
       ]
     },
     {
-      "id" : "VAAS2",
+      "id" : "FMB2",
       "start" : "2017-03-07",
       "end" : "2017-06-23",
       "dates" : [

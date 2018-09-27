@@ -1,0 +1,31 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * This script is used to price a vanilla call option by using values from the document and pricing data data json files in order to introduce
+ * The user to more advanced methods of accessing data from these files:
+ * Document file: tutorial_EUadvanced.json
+ * Pricing data file: tutorial_EUadvanced.scn                                                                                     
+ */
+
+// DATA FROM THE DOCUMENT FILES
+// time to expiry as a fraction of a year with basis 365
+def tau = yearFraction(value_date, maturity_date, "ACT/365.FIXED", YearFractionParameters()) // DATA FROM THE PRICING DATA FILE
+
+// DATA FROM THE PRICING DATA FILE
+// spot price
+def S = getEquitySpot(stockdata.name, calculationDate())
+// continuously compounded dividend yield
+def D = data0D("DIVIDEND", [stockdata.name, "CONTINUOUS"], calculationDate()) 
+// risk-free interest rate
+def r = forwardRate(calculationDate(), maturity_date, metaData("YIELD_CURVE", [curve, "discountFactor"], "zeroCouponBasis"), YearFractionParameters(), curve)
+// volatility
+def vol = data0D("Volatility", [stockdata.name], calculationDate())
+
+// CALCULATION OF THE OPTION VALUE
+def Option_Value = getVanillaBS(type, S, strike, vol, tau, r , D)
+ // option value
+return Option_Value

@@ -3,19 +3,21 @@
     {
       "dealStamp": "Option_Document_1",
       "script": "tutorial_EUadvanced",
-      "maturity_date": "2019-04-25",
+      "type": "call",
       "strike": 43,
-      "value_date": "2017-04-25",
+      "maturity_date": "2019-04-25",
+      "value_date": "2017-04-13",
       "stockdata": {
-        "currency": "USD",
+        "name": "COCA_COLA",
         "instrument": "EQUITY",
-        "name": "COCA_COLA"
-      }
+        "currency": "USD"
+      },
+      "curve": "projection_Libor_3M"
     }
   ],
   "pricingData": {
     "dates": [
-      "2017-04-25"
+      "2017-04-13"
     ],
     "scenarioData": [
       {
@@ -26,7 +28,7 @@
           ]
         },
         "points": {
-          "2017-04-25": [
+          "2017-04-13": [
             {
               "values": [
                 0.0221
@@ -45,7 +47,7 @@
           ]
         },
         "points": {
-          "2017-04-25": [
+          "2017-04-13": [
             {
               "values": [
                 0.01
@@ -63,68 +65,160 @@
           ]
         },
         "points": {
-          "2017-04-25": [
+          "2017-04-13": [
             {
               "values": [
                 46
               ]
             }
           ]
-        },
-        "metaData": {}
+        }
       },
       {
         "id": {
-          "type": "YIELD_CURVE",
           "parameters": [
-            "USD-SWAP",
+            "projection_Libor_3M",
             "discountFactor"
-          ]
-        },
-        "points": {
-          "2017-04-25": [
-            {
-              "x": 17281,
-              "values": [
-                1
-              ]
-            },
-            {
-              "x": 17301,
-              "values": [
-                0.99865
-              ]
-            },
-            {
-              "x": 17868,
-              "values": [
-                0.99428
-              ]
-            },
-            {
-              "x": 18232,
-              "values": [
-                0.99365
-              ]
-            }
-          ]
+          ],
+          "type": "YIELD_CURVE"
         },
         "metaData": {
-          "zeroCouponFormula": "exponential",
-          "zeroCouponBasis": "ACT/365.FIXED",
-          "switchDates": [],
           "currency": "USD",
           "interpolationMethods": [
-            "linear"
+            "flat"
           ],
           "interpolationVariables": [
-            "zeroCouponRate"
+            "discountFactor"
+          ],
+          "switchDates": [],
+          "zeroCouponBasis": "ACT/365.FIXED",
+          "zeroCouponFormula": "exponential"
+        },
+        "points": {
+          "2017-04-13": [
+            {
+              "values": [
+                1
+              ],
+              "x": 17269
+            },
+            {
+              "values": [
+                0.99943
+              ],
+              "x": 17294
+            },
+            {
+              "values": [
+                0.99886
+              ],
+              "x": 17319
+            },
+            {
+              "values": [
+                0.99829
+              ],
+              "x": 17344
+            },
+            {
+              "values": [
+                0.99772
+              ],
+              "x": 17369
+            },
+            {
+              "values": [
+                0.99715
+              ],
+              "x": 17394
+            },
+            {
+              "values": [
+                0.99658
+              ],
+              "x": 17419
+            },
+            {
+              "values": [
+                0.99629
+              ],
+              "x": 17444
+            },
+            {
+              "values": [
+                0.99601
+              ],
+              "x": 17469
+            },
+            {
+              "values": [
+                0.99572
+              ],
+              "x": 17494
+            },
+            {
+              "values": [
+                0.99544
+              ],
+              "x": 17519
+            },
+            {
+              "values": [
+                0.99515
+              ],
+              "x": 17544
+            },
+            {
+              "values": [
+                0.99486
+              ],
+              "x": 17569
+            },
+            {
+              "values": [
+                0.99458
+              ],
+              "x": 17594
+            },
+            {
+              "values": [
+                0.99403
+              ],
+              "x": 17619
+            },
+            {
+              "values": [
+                0.99347
+              ],
+              "x": 17644
+            },
+            {
+              "values": [
+                0.99292
+              ],
+              "x": 17669
+            },
+            {
+              "values": [
+                0.99236
+              ],
+              "x": 17694
+            },
+            {
+              "values": [
+                0.99181
+              ],
+              "x": 17719
+            },
+            {
+              "values": [
+                0.99125
+              ],
+              "x": 17787
+            }
           ]
         }
       }
-    ],
-    "historicalData": [],
-    "calendars": [],
-    "configuration": {}
-  }  
+    ]
+  }
 }
