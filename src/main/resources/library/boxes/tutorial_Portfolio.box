@@ -1,0 +1,113 @@
+import tutorial_package.Tutorial_portfolio; 
+
+// Inputs management 
+def request(value) {
+    Tutorial_portfolio.init(value)
+    }
+
+def timeini = System.currentTimeMillis() 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Create the dataManager from the pricingData
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+DataManager dataManager = DataManagerRestUtils.create(Tutorial_portfolio.pricingData) 
+
+//Results Object mapper
+def mapper = new ObjectMapper()
+final ObjectNode resultsFinal = mapper.createObjectNode()
+
+/*
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Scenario generation
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+def aod = Tutorial_portfolio.pricingData.getDates()[0].toLocalDate().toEpochDay()
+
+def toZC(value,aod,paydate){
+        if (aod == paydate) return 0
+        return -100 * Math.log(value) * 365 / (paydate-aod)     
+    }
+def toDF(value,aod,paydate){
+        return Math.exp(-(value / 100) *  (paydate-aod) / 365)      
+    } 
+
+def scenCount = 0
+if (Tutorial_portfolio.shiftsIncluded) {
+    def shifts = Tutorial_portfolio.shifts
+    ArrayNode scenariiType = mapper.createArrayNode()
+    ArrayNode scenariiShift = mapper.createArrayNode()
+    shifts.each{
+    def scenariiList = []
+    def type = it.get("type").textValue()
+    def steps = it.get("steps").intValue()
+    def min = it.get("min").doubleValue()
+    def max = it.get("max").doubleValue()
+    def stepSize = (max - min) / steps
+    def param1 = it.get("param1").textValue()
+    def param2 = it.get("param2").textValue()  
+    
+    for (int j in 0 .. Tutorial_portfolio.pricingData.getScenarioData().size()-1) { 
+        def scenarioData = Tutorial_portfolio.pricingData.getScenarioData()[j]
+        
+        if (scenarioData.getId().getType()== "YIELD_CURVE" && scenarioData.getId().getParameters()[0] == param1 && scenarioData.getId().getParameters()[1] == param2) {
+           scenCount = steps + 2                    
+           scenarioData.getPoints().values().each {         
+           
+           for (final DataPoint s : it){
+               def value = new double [scenCount]                   
+               value[0] = s.values[0]                           
+            
+               for (int i = 0; i < steps+1; i++){
+                   value[i + 1] = toDF(toZC(s.values[0],aod,s.x) * (1 + (min + i * stepSize) / 100),aod,s.x)
+               }
+               scenariiList.add(new ScenarioValues(ScenarioIdentifier.create(type, [param1,param2]), Point.of(s.x), value))  
+           }                         
+           scenariiType.add("YC_" + param1)
+           scenariiShift.add("0 % (base)")
+           for (int i = 0; i < steps+1; i++){
+               scenariiType.add("YC_" + param1)
+               scenariiShift.add((min + i * stepSize).round(6) + " %")
+           }
+           }                                                    
+        }  
+    }
+    dataManager.addScenarios(scenariiList)      
+    }   
+    resultsFinal.put("type",scenariiType)
+    resultsFinal.put("shift",scenariiShift) 
+}
+*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Register the documents assigning them a script
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+documents = []  
+Tutorial_portfolio.tradeNode.each {
+    def id = it.get("dealStamp").asText()   
+    documents.add(new JsonDocument(it.get("script").asText(), it, id))   
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Run the execution (returns a non ordered map of results)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+resultById = engine().buildSession(dataManager)
+            .process(documents)
+            .collect() 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////       
+// Prepare output
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+def timefinal = System.currentTimeMillis()
+
+if (Tutorial_portfolio.shiftsIncluded) {    
+    double pvPerSecond = scenCount*documents.size()*1000.0/(timefinal-timeini)
+    resultsFinal.put("timeSpent", pvPerSecond.round() + " PVs per second")    
+}
+*/
+resultsFinal.put("results",Tutorial_portfolio.outputResults(resultById, documents))
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+// Output the result
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+output("results",mapper.writeValueAsString(resultsFinal))
+close("results")

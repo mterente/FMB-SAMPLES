@@ -1,108 +1,301 @@
 {
-  "dates" : [
+  "dates": [
     "2017-04-13"
   ],
-  "scenarioData" : [
+  "historicalData": [
+  ],
+  "scenarioData": [
     {
-      "id" : {
-        "type" : "YIELD_CURVE",
-        "parameters" : [
+      "id": {
+        "parameters": [
           "discount_Libor_3M",
           "discountFactor"
-        ]
+        ],
+        "type": "YIELD_CURVE"
       },
-      "points" : {
-        "2017-04-13" : [
-          {
-            "x" : 17269.0,
-            "values" : [
-              1.0
-            ]
-          },
-          {
-            "x" : 17422.0,
-            "values" : [
-              0.99856
-            ]
-          },
-          {
-            "x" : 17603.0,
-            "values" : [
-              0.99458
-            ]
-          },
-          {
-            "x" : 17787.0,
-            "values" : [
-              0.99256
-            ]
-          }
-        ]
-      },
-      "metaData" : {
-        "zeroCouponFormula" : "exponential",
-        "zeroCouponBasis" : "ACT/365.FIXED",
-        "switchDates" : [],
-        "currency" : "USD",
-        "interpolationMethods" : [
+      "metaData": {
+        "currency": "USD",
+        "interpolationMethods": [
           "flat"
         ],
-        "interpolationVariables" : [
+        "interpolationVariables": [
           "discountFactor"
+        ],
+        "switchDates": [
+        ],
+        "zeroCouponBasis": "ACT/365.FIXED",
+        "zeroCouponFormula": "exponential"
+      },
+      "points": {
+        "2017-04-13": [
+          {
+            "values": [
+              1
+            ],
+            "x": 17269
+          },
+          {
+            "values": [
+              0.99976
+            ],
+            "x": 17294
+          },
+          {
+            "values": [
+              0.99952
+            ],
+            "x": 17319
+          },
+          {
+            "values": [
+              0.99928
+            ],
+            "x": 17344
+          },
+          {
+            "values": [
+              0.99904
+            ],
+            "x": 17369
+          },
+          {
+            "values": [
+              0.9988
+            ],
+            "x": 17394
+          },
+          {
+            "values": [
+              0.99856
+            ],
+            "x": 17419
+          },
+          {
+            "values": [
+              0.99799
+            ],
+            "x": 17444
+          },
+          {
+            "values": [
+              0.99742
+            ],
+            "x": 17469
+          },
+          {
+            "values": [
+              0.99685
+            ],
+            "x": 17494
+          },
+          {
+            "values": [
+              0.99628
+            ],
+            "x": 17519
+          },
+          {
+            "values": [
+              0.99572
+            ],
+            "x": 17544
+          },
+          {
+            "values": [
+              0.99515
+            ],
+            "x": 17569
+          },
+          {
+            "values": [
+              0.99458
+            ],
+            "x": 17594
+          },
+          {
+            "values": [
+              0.99424
+            ],
+            "x": 17619
+          },
+          {
+            "values": [
+              0.99391
+            ],
+            "x": 17644
+          },
+          {
+            "values": [
+              0.99357
+            ],
+            "x": 17669
+          },
+          {
+            "values": [
+              0.99323
+            ],
+            "x": 17694
+          },
+          {
+            "values": [
+              0.9929
+            ],
+            "x": 17719
+          },
+          {
+            "values": [
+              0.99256
+            ],
+            "x": 17787
+          }
         ]
       }
     },
     {
-      "id" : {
-        "type" : "YIELD_CURVE",
-        "parameters" : [
+      "id": {
+        "parameters": [
           "projection_Libor_3M",
           "discountFactor"
-        ]
+        ],
+        "type": "YIELD_CURVE"
       },
-      "points" : {
-        "2017-04-13" : [
-          {
-            "x" : 17269.0,
-            "values" : [
-              1.0
-            ]
-          },
-          {
-            "x" : 17422.0,
-            "values" : [
-              0.99658
-            ]
-          },
-          {
-            "x" : 17603.0,
-            "values" : [
-              0.99458
-            ]
-          },
-          {
-            "x" : 17787.0,
-            "values" : [
-              0.99125
-            ]
-          }
-        ]
-      },
-      "metaData" : {
-        "zeroCouponFormula" : "exponential",
-        "zeroCouponBasis" : "ACT/365.FIXED",
-        "switchDates" : [],
-        "currency" : "USD",
-        "interpolationMethods" : [
+      "metaData": {
+        "currency": "USD",
+        "interpolationMethods": [
           "flat"
         ],
-        "interpolationVariables" : [
+        "interpolationVariables": [
           "discountFactor"
+        ],
+        "switchDates": [
+        ],
+        "zeroCouponBasis": "ACT/365.FIXED",
+        "zeroCouponFormula": "exponential"
+      },
+      "points": {
+        "2017-04-13": [
+          {
+            "values": [
+              1
+            ],
+            "x": 17269
+          },
+          {
+            "values": [
+              0.99943
+            ],
+            "x": 17294
+          },
+          {
+            "values": [
+              0.99886
+            ],
+            "x": 17319
+          },
+          {
+            "values": [
+              0.99829
+            ],
+            "x": 17344
+          },
+          {
+            "values": [
+              0.99772
+            ],
+            "x": 17369
+          },
+          {
+            "values": [
+              0.99715
+            ],
+            "x": 17394
+          },
+          {
+            "values": [
+              0.99658
+            ],
+            "x": 17419
+          },
+          {
+            "values": [
+              0.99629
+            ],
+            "x": 17444
+          },
+          {
+            "values": [
+              0.99601
+            ],
+            "x": 17469
+          },
+          {
+            "values": [
+              0.99572
+            ],
+            "x": 17494
+          },
+          {
+            "values": [
+              0.99544
+            ],
+            "x": 17519
+          },
+          {
+            "values": [
+              0.99515
+            ],
+            "x": 17544
+          },
+          {
+            "values": [
+              0.99486
+            ],
+            "x": 17569
+          },
+          {
+            "values": [
+              0.99458
+            ],
+            "x": 17594
+          },
+          {
+            "values": [
+              0.99403
+            ],
+            "x": 17619
+          },
+          {
+            "values": [
+              0.99347
+            ],
+            "x": 17644
+          },
+          {
+            "values": [
+              0.99292
+            ],
+            "x": 17669
+          },
+          {
+            "values": [
+              0.99236
+            ],
+            "x": 17694
+          },
+          {
+            "values": [
+              0.99181
+            ],
+            "x": 17719
+          },
+          {
+            "values": [
+              0.99125
+            ],
+            "x": 17787
+          }
         ]
       }
     }
-  ],
-  "historicalData" : [ ],
-  "calendars" : [ ],
-  "configuration" : { }
+  ]
 }

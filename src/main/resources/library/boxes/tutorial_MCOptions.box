@@ -1,0 +1,99 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Input management
+def request(input){
+    // Create a jackson Object mapper
+    mapper = new ObjectMapper();
+    // Read the input, put it in valueNode
+    valueNode = mapper.readTree(input);
+    // Extract the document part from node
+    docNode = valueNode["documents"][0]
+    // Extract the pricing data part from node
+    pricingDataNode = valueNode["pricingData"]
+    // JSON converted to ProcessingData Java object
+    pricingData = mapper.readValue(pricingDataNode.toString(), ProcessingData.class)
+    // Extract the dates part from node   
+    dates = pricingData.getDates()
+}
+
+////////////////////////////////////////////////////////////////////////// 
+//////      closedFormula: Using the tutorial_EUAdvanced script     //////
+////////////////////////////////////////////////////////////////////////// 
+
+// Create the dataManager from the pricingData
+DataManager dataManager = DataManagerRestUtils.create(pricingData) 
+
+// Run the script on the deal named "tutorial_EUadvanced"
+def closedFormula = engine().buildSession(dataManager).process("tutorial_EUadvanced",  docNode.toString(),"tutorial_EUadvanced").collect()
+
+// Check no error occured
+if (closedFormula["tutorial_EUadvanced"].hasError())   
+    output("closedFormula",closedFormula["tutorial_EUadvanced"].errors().toString());
+else
+    // Output results
+    output("closedFormula", closedFormula["tutorial_EUadvanced"].get(0,0))
+    close("closedFormula")
+
+////////////////////////////////////////////////////////////////////////// 
+//////      sequential: Using the tutorial_MCSequential script      //////
+////////////////////////////////////////////////////////////////////////// 
+
+// Run the script on the deal named "tutorial_MCSequential"
+def sequential = engine().buildSession(dataManager).process("tutorial_MCSequential",  docNode.toString(),"tutorial_MCSequential").collect()
+// Check no error occured
+if (sequential["tutorial_MCSequential"].hasError())   
+    output("sequential",sequential["tutorial_MCSequential"].errors().toString());
+else
+    // Output results
+    output("sequential", sequential["tutorial_MCSequential"].get(0,0))
+    close("sequential")
+
+////////////////////////////////////////////////////////////////////////// 
+//////      parallel: Using the tutorial_MCParallel script          //////
+////////////////////////////////////////////////////////////////////////// 
+
+// Retrieve number of paths
+def paths = docNode.get("paths").intValue()
+
+// Generate random numbers
+def mt = new MersenneTwister(engine().configuration().seed())
+def randoms = new double[paths]
+for (int i = 0; i < randoms.length; ++i)
+    randoms[i] = mt.nextGaussian()
+
+// Create the ID to access the data. An ID has a type and a list of scenario identifiers
+def id = ScenarioIdentifier.create("RANDOM", [])
+
+// Create a ScenarioValues object that holds parallel data
+def parallelValues = new ScenarioValues(id, Point.of(), randoms)
+
+// Create the dataManager 
+def dataManagerExtended = new DataManager(paths, dates)
+
+// Populate the dataManager with the pricingData and automatically extend it to paths
+DataManagerRestUtils.populate(dataManagerExtended, pricingData)  
+
+// Add the randoms values
+dataManagerExtended.addScenarios([parallelValues])
+
+// Run the script on the deal named "tutorial_MCParallel"
+def parallel = engine().buildSession(dataManagerExtended).process("tutorial_MCParallel",  docNode.toString(), "tutorial_MCParallel").collect()
+
+// Check no error occured
+if (parallel["tutorial_MCParallel"].hasError())   
+    output("parallel",parallel["tutorial_MCParallel"].errors().toString())
+else{
+    // Compute the mean of the results and send it to next box
+    def sum = 0
+    def scalarRes = parallel["tutorial_MCParallel"]
+    for(i = 0; i < scalarRes.scenarioCount(); ++i)
+        sum += scalarRes.get(i, 0)
+    
+    // Output the result
+    output("parallel", sum / parallel["tutorial_MCParallel"].scenarioCount())
+    close("parallel")
+    }

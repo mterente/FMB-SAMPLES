@@ -1,0 +1,48 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+// Inputs management
+def request(value) {
+    // Create a jackson Object mapper
+    mapper = new ObjectMapper()
+    // Read value, put it in an valueNode node
+    valueNode = mapper.readTree(value)
+    // Extract the document and pricingData part from node
+    tradeNode = valueNode["documents"]
+    pricingDataNode = valueNode["pricingData"]
+    // JSON converted to ProcessingData Java object
+    pricingData = mapper.readValue(pricingDataNode.toString(), ProcessingData.class)
+}
+ 
+// Create the dataManager from the pricingData
+DataManager dataManager = DataManagerRestUtils.create(pricingData)  
+ 
+// Register the documents assigning them a script
+documents = []
+tradeNode.each {
+    def id = it.get("dealStamp").asText()
+    documents.add(new JsonDocument(it.get("script").asText(), it, id)) // Select the script
+}
+ 
+// Run the execution (returns a non ordered map of results)
+resultById = engine().buildSession(dataManager)
+        .process(documents)
+        .collect()  
+        
+// Prepare results
+final ArrayNode results = mapper.createArrayNode()
+documents.each {
+    ObjectNode docresults = mapper.createObjectNode()
+    docresults.put("id",it.getId())
+    result = resultById[it.getId()]
+    docresults.put("type",result.type().name())
+    docresults.set("values", mapper.readTree(result.toString()))
+    results.add(docresults)    
+}
+ 
+ // Output the result
+output("results",mapper.writeValueAsString(results))
+close("results") 

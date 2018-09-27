@@ -1,0 +1,10 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+def request(input){
+}
+
+output("OUTPUT", "HELLO")

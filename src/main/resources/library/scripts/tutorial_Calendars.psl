@@ -1,0 +1,113 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* /////////////////////////////////////////////////////////////////////////////////////////  
+*                       this script file shows calendar usage
+*  /////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+*
+* boolean   calendarExists(String id)
+*           Check if a calendar exists with the specified id
+*/
+def a = 0
+
+if (!calendarExists("FMB") || !calendarExists("FMB2")) {
+        trace ("1) calendar FMB and/or FMB2 are missing ", a)
+    }
+else 
+    trace ("1) both calendars FMB and FMB2 exist ",a)
+
+/*
+* 
+* Calendar  calendar(String id)
+*           Returns a calendar with the specified id
+*/      
+def cal1 = calendar("FMB")    
+def cal2 = calendar("FMB2")
+
+/*
+* 
+* boolean  calendarContains(Calendar calendar, Date date)
+*           Verifies if a working day exists in a calendarcalendar(String id)          
+*/
+if (calendarContains(cal1,"2017-05-06"))
+    trace("2) FMB contains date 2017-05-06 ", a)
+else
+    trace("2) FMB does not contain date 2017-05-06 ",a)
+
+if (calendarContains(cal2,"2017-05-06"))
+    trace("3) FMB2 contains date 2017-05-06 ",a)
+else
+    trace("3) FMB2 does not contain date 2017-05-06 ",a)    
+    
+/*
+* 
+* Calendar  intersection(Calendar first, Calendar second)
+*           Intersection of two calendars
+*
+*/
+def intercal = intersection(cal1,cal2)
+if (!calendarContains(intercal,"2017-05-06"))
+    trace("4) intersection of FMB and FMB2 does not contain date 2017-05-06 ",a)   
+
+/*
+* 
+* Calendar  union(Calendar first, Calendar second)
+*           Union of two calendars 
+*            
+*/
+def unioncal = union(cal1,cal2)
+if (calendarContains(unioncal,"2017-05-06"))
+    trace("5) union of FMB and FMB2 contains date 2017-05-06 ",a)
+
+/*
+* 
+* Calendar  daysBetween(Calendar calendar, Date from, Date to)
+*           Returns the number or working dates between 'from' (inclusive) and 'to' (exclusive) 
+*           in the specified calendar
+* 
+*/
+def interlength = daysBetween(intercal,"2017-03-07","2017-06-23")
+def cal2length  = daysBetween(cal2,"2017-03-07","2017-06-23")
+def cal1length = daysBetween(cal1,"2017-03-07","2017-06-23")
+def unionlength = daysBetween(unioncal,"2017-03-07","2017-06-23")
+trace ("6) number of business days between 2017-03-07 and 2017-06-23 on the intersection of FMB and FMB2 is ", interlength)
+trace ("7) number of business days between 2017-03-07 and 2017-06-23 on the calendar FMB is ", cal1length)
+trace ("8) number of business days between 2017-03-07 and 2017-06-23 on the calendar FMB2 is ", cal2length)
+trace ("9) number of business days between 2017-03-07 and 2017-06-23 on the union of FMB and FMB2 is ", unionlength)
+
+/*
+* 
+* double  yearFractionBUS252(startDate, endDate, calendarId)
+*           Returns a year fraction computed with the basis BUS/252
+*           in the specified calendar
+* 
+*/
+def cal1dcf = yearFractionBUS252("2017-03-07","2017-06-23","FMB")
+def cal2dcf = yearFractionBUS252("2017-03-07","2017-06-23","FMB2")
+trace ("10) BUS/252 year fraction between 2017-03-07 and 2017-06-23 on the calendar FMB is ",cal1dcf)
+trace ("11) BUS/252 year fraction between 2017-03-07 and 2017-06-23 on the calendar FMB2 is ",cal2dcf)
+
+
+/*
+* 
+* double  yearFraction(startDate, endDate, basis, yearFractionParameters)
+*           Returns the year fraction between two dates according to a basis. 
+*           The bases managed by this function are : 30/360, 30E/360, 30/365, ACT/365.FIXED, 
+*           ACT/364, ACT/360, ACT/ACT, 30E+/360, A365/EXC29, ACT/ACTicma, JGB, BUS/252
+* 
+*/
+def yearFractionParameters1 = YearFractionParameters()
+yearFractionParameters1.calendarId = "FMB"
+cal1dcf = yearFraction("2017-03-07","2017-06-23","BUS/252",yearFractionParameters1)
+def yearFractionParameters2 = YearFractionParameters()
+yearFractionParameters2.calendarId = "FMB2"
+cal2dcf = yearFraction("2017-03-07","2017-06-23","BUS/252",yearFractionParameters2)
+trace ("12) BUS/252 year fraction between 2017-03-07 and 2017-06-23 on the calendar FMB is ",cal1dcf)
+trace ("13) BUS/252 year fraction between 2017-03-07 and 2017-06-23 on the calendar FMB2 is ",cal2dcf)
+
+return 42

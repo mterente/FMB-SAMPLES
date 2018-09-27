@@ -1,0 +1,47 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Input management
+def request(input){
+    // Create a jackson Object mapper
+    ObjectMapper MAPPER = new ObjectMapper();
+    // Read the input, put it in an ObjectNode node
+    ObjectNode node = (ObjectNode) MAPPER.readTree(input);
+    // Extract the document part from node
+    doc = node["documents"][0]
+}
+
+// Get the package to use
+def operation = doc.get("type").textValue()
+
+// Get matrix A
+def heightA = doc.get("A").size()
+def widthA = doc.get("A")[0].size()
+final double[][] A = new double[heightA][widthA];
+for (int i = 0; i < heightA; ++i)
+    for (int j = 0; j < widthA; ++j)
+        A[i][j] = doc.get("A")[i][j].doubleValue()
+
+// Main treatment
+if (operation == "LAPACK"){
+    // Initialize a Lapack object
+    final Lapack lapack = getLapack()
+    // Perform a Singular Value Decomposition of A
+    final SVDecompositionResult result = lapack.svDecomposition(A);
+    // Output results
+    output("U", result.u().toString())
+    output("S", result.s().toString())
+    output("V", result.v().toString())
+}
+else {  // Use Apache Common Math
+    def m = new Array2DRowRealMatrix(A)
+    // Perform a Singular Value Decomposition of A
+    def svd = new SingularValueDecomposition(m)
+    // Output results
+    output("U", svd.getU().getData().toString())
+    output("S", svd.getSingularValues().toString())
+    output("V", svd.getV().getData().toString())
+}

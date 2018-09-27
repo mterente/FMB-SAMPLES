@@ -1,0 +1,101 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                          DISCLAIMER                                                     //
+// This is a sample file. If you want to modify it, please copy/paste it before.                           //
+// Otherwise conflicts will occur while upgrading the library (see FAQ / Best practices for more details)  //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Returns an array containing the values of Black Scholes Vanilla options 
+ * @param type 
+ *        The option type, call or put (This is a string)  
+ * @param S
+ *        Spot price of the underlying of the option (This is an array of doubles)  
+ * @param E
+ *        Strike of the option (This is a double)
+ * @param vol
+ *        Volatility of the option (This is a double)
+ * @param tau
+ *        Time to maturity (This is a double)
+ * @param r
+ *        Risk free interest rate (This is a double)
+ * @return
+ *        Option: Array of doubles (same size as S) with the option price corresponding to the value of the underlying at maturity
+ */
+ 
+@Public
+def getVanillaBS(type, S, E, vol, tau, r, D){
+   
+        def d1 = getBSdplus(S, E, vol, tau, r, D)
+        def d2 = getBSdminus(S, E, vol, tau, r, D)
+        def CP = getOptionType(type)
+        def Option = 0
+        
+        if (tau > 0){
+            Option = CP * S * exp(-D * tau) * normalCDF(CP * d1) - CP * E * exp(-r * tau) * normalCDF(CP * d2)           
+        } else if (tau == 0) {
+             if (CP * (S - E) > 0){
+                Option = CP * (S - E)            
+                } else {
+                 Option = 0               
+             }
+        }
+        return Option
+}
+
+/**
+ * Returns 1 for a call , -1 for a put 
+ * @param type
+ * 		  The option type, call or put (This is a string)
+ */
+@Public
+def getOptionType(type){
+	if (type == "call")
+		return 1
+	return -1
+} 
+ 
+/**
+ * Returns the value of dPlus parameter in the Black-Scholes formula
+ * @param spot_price
+ *        Spot price of the underlying of the option
+ * @param strike
+ *        Strike of the option
+ * @param volatility
+ *        Volatility of the option
+ * @param timeToMaturity
+ *        Year fraction corresponding to the maturity of the option
+ * @param r
+ *        Risk-free interest-rate
+ * @param D
+ *        Dividend in the case of continuous compounding
+ * @return
+ *        dPlus parameter
+ */
+ 
+@Public 
+def getBSdplus(spot_price, strike, volatility, timeToMaturity, r, D){
+    return ((log(spot_price / strike) + (r - D + 0.5 * volatility * volatility) * timeToMaturity) / (volatility * sqrt(timeToMaturity)))
+}
+ 
+/**
+ * Returns the value of dMinus parameter in the Black-Scholes formula
+ * @param spot_price
+ *        Spot price of the underlying of the option
+ * @param strike
+ *        Strike of the option
+ * @param volatility
+ *        Volatility of the option
+ * @param timeToMaturity
+ *        Year fraction corresponding to the maturity of the option
+ * @param r
+ *        Risk-free interest-rate
+ * @param D
+ *        Dividend in the case of continuous compounding
+ * @return
+ *        dMinus parameter
+ */
+ 
+@Public 
+def getBSdminus(spot_price, strike, volatility, timeToMaturity, r, D){
+    return ((log(spot_price / strike) + (r - D - 0.5 * volatility * volatility )* timeToMaturity) / (volatility * sqrt(timeToMaturity)))
+}
