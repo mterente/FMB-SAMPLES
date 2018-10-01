@@ -1,5 +1,16 @@
 {
   "inputIncluded": false, 
   "pathDoc": "/projects/FusionFabric.cloud-FinancialModelBuilder-samples/src/test/resources/documents/tutorial_Portfolio.json",
-  "pathPricingData": "/projects/FusionFabric.cloud-FinancialModelBuilder-samples/src/test/resources/pricingData/tutorial_Portfolio.scn"  
-}
+  "pathPricingData": "/projects/FusionFabric.cloud-FinancialModelBuilder-samples/src/test/resources/pricingData/tutorial_Portfolio.scn",
+  "shiftsIncluded" : true,
+  "shifts": [
+    {
+      "type": "YIELD_CURVE",
+      "param1": "projection_Libor_3M",
+      "param2": "discountFactor",
+      "min": -10,
+      "max": 10,
+      "steps": 3
+    }
+  ]
+} 
