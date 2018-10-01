@@ -15,7 +15,9 @@ https://fmb.fusionfabric.cloud/static/documentation/revision-control.html#config
 	c) in URL, paste your GitHub SSH link: it automatically fills Name with FMB-SAMPLES <br />
 	d) click on Import <br />
 	e) select FPP Sample <br />
+	![Alt text](/import_project_step3.png?raw=true "Import Project step 3") <br />
 	f) click on Next <br />
+	![Alt text](/import_project_step4.png?raw=true "Import Project step 4") <br />
 	g) set  FPP Library Name = FMB <br />
 	h) set  Artifact ID = FMB-SAMPLES <br />
 	i) set  Group ID = FMB-SAMPLES <br />
