@@ -1,7 +1,7 @@
 {
   "inputIncluded": false, 
-  "pathDoc": "/projects/FusionFabric.cloud-FinancialModelBuilder-samples/src/test/resources/documents/tutorial_Portfolio.json",
-  "pathPricingData": "/projects/FusionFabric.cloud-FinancialModelBuilder-samples/src/test/resources/pricingData/tutorial_Portfolio.scn",
+  "pathDoc": "/projects/FMB-SAMPLES/src/test/resources/documents/tutorial_Portfolio.json",
+  "pathPricingData": "/projects/FMB-SAMPLES/src/test/resources/pricingData/tutorial_Portfolio.scn",
   "shiftsIncluded" : true,
   "shifts": [
     {
