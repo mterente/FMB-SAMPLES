@@ -23,15 +23,13 @@ public class Tutorial_portfolio {
     public static void init(String value) throws IOException {
          // Read value, put it in an valueNode node
         final ObjectNode valueNode = (ObjectNode) mapper.readTree(value);
-        
-        /*
+
         // Check shifts information
         shiftsIncluded = valueNode.get("shiftsIncluded").asBoolean();
         if (shiftsIncluded){
             shifts = (ArrayNode) valueNode.get("shifts");
         }
-        */
-        
+
         // Check Plugin
         inputIncluded = valueNode.get("inputIncluded").asBoolean();        
         if (inputIncluded){
