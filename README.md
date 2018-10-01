@@ -16,7 +16,9 @@ https://fmb.softlaunch.fusionfabric.cloud/static/documentation/revision-control.
 	d) tick Branch and input FFPCL <br />
 	e) click on Import <br />
 	f) select FPP Sample <br />
+	![Alt text](/import_project_step3.png?raw=true "Import Project step 3") <br />
 	g) click on Next <br />
+	![Alt text](/import_project_step4.png?raw=true "Import Project step 4") <br />
 	h) set  FPP Library Name = FMB <br />
 	i) set  Artifact ID = FMB-SAMPLES <br />
 	j) set  Group ID = FMB-SAMPLES <br />
