@@ -9,8 +9,9 @@ https://fmb.fusionfabric.cloud/static/documentation/revision-control.html#config
 ![Alt text](/copy_SSH_link.png?raw=true "Copy SSH link") <br />
 3) in FusionFabric.cloud Financial Model Builder: <br />
 	a) open Workspace / Import Project  or  Alt+Shift+A <br />
+	![Alt text](/import_project_step1.png?raw=true "Import Project step 1") <br />
 	b) select Version Control System / GIT   <br />
-	![Alt text](/import_project.png?raw=true "Import Project") <br />
+	![Alt text](/import_project_step2.png?raw=true "Import Project step 2") <br />
 	c) in URL, paste your GitHub SSH link: it automatically fills Name with FMB-SAMPLES <br />
 	d) click on Import <br />
 	e) select FPP Sample <br />
