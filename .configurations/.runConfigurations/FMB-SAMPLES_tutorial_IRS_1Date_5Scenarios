@@ -1,0 +1,32 @@
+{  
+   "library":{  
+      "libraryPath":"/FMB-SAMPLES/src/main/resources/library",
+      "artifactId":"FMB-SAMPLES",
+      "groupId":"FMB-SAMPLES"
+   },
+   "scenario":"/FMB-SAMPLES/src/test/resources/pricingData/tutorial_IRS_1Date_5Scenarios.scn",
+   "enableStatistic":false,
+   "document":"/FMB-SAMPLES/src/test/resources/documents/tutorial_IRS.json",
+   "script":"/FMB-SAMPLES/src/main/resources/library/scripts/tutorial_IRS.psl",
+   "name":"FMB-SAMPLES_tutorial_IRS_1Date_5Scenarios",
+   "engineConfigurationDto":{  
+      "seed":1234,
+      "sliceSize":131072,
+      "traceBufferSize":12288,
+      "maxErrorPerDocument":1,
+      "maxPackSize":100,
+      "testDevices":[  
+         2
+      ]
+   },
+   "scriptConfigurationDto":{  
+      "logCategories":"",
+      "defaultArraySize":625,
+      "strictPrecomputation":false,
+      "maxLoopIterations":50000,
+      "logLevel":"OFF",
+      "maxDate":"2200-01-01",
+      "precomputeComplexityThreshold":80000,
+      "enableAssertions":false
+   }
+}
