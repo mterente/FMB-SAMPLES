@@ -1,0 +1,772 @@
+[
+  {
+    "dealStamp": "Option_Document_1",
+    "type": "call",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 43000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "Bank of America",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "Option_Document_2",
+    "type": "call",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 44000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "Citi",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "Option_Document_3",
+    "type": "call",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 45000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "BNP",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "Option_Document_4",
+    "type": "call",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 46000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "UBS",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "Option_Document_5",
+    "type": "call",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 47000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "Option_Document_6",
+    "type": "put",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 48000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "Option_Document_7",
+    "type": "put",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 49000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "Option_Document_8",
+    "type": "put",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 50000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "Option_Document_9",
+    "type": "put",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 51000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "Option_Document_10",
+    "type": "put",
+    "script": "tutorial_EUadvanced",
+    "maturity_date": "2019-04-25",
+    "strike": 52000,
+    "value_date": "2017-04-13",
+    "curve": "projection_Libor_3M",
+    "typeOfDeals": "Option",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "stockdata": {
+      "instrument": "EQUITY",
+      "name": "Company_A"
+    }
+  },
+  {
+    "dealStamp": "IRS_Document_1",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "Bank of America",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 100000,
+        "payOrRec": "receiving",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 100000,
+        "payOrRec": "paying",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dealStamp": "IRS_Document_2",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "Citi",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 110000,
+        "payOrRec": "receiving",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 110000,
+        "payOrRec": "paying",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dealStamp": "IRS_Document_3",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "BNP",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 120000,
+        "payOrRec": "receiving",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 120000,
+        "payOrRec": "paying",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dealStamp": "IRS_Document_4",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "UBS",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 140000,
+        "payOrRec": "paying",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 140000,
+        "payOrRec": "receiving",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dealStamp": "IRS_Document_5",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 150000,
+        "payOrRec": "receiving",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 150000,
+        "payOrRec": "paying",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dealStamp": "IRS_Document_6",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 160000,
+        "payOrRec": "receiving",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 160000,
+        "payOrRec": "paying",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dealStamp": "IRS_Document_7",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 170000,
+        "payOrRec": "receiving",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 170000,
+        "payOrRec": "paying",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dealStamp": "IRS_Document_8",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 180000,
+        "payOrRec": "receiving",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 180000,
+        "payOrRec": "paying",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dealStamp": "IRS_Document_9",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 190000,
+        "payOrRec": "receiving",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 190000,
+        "payOrRec": "paying",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dealStamp": "IRS_Document_10",
+    "typeOfDeals": "IRS",
+    "currency": "USD",
+    "counterparty": "Societe Generale",
+    "script": "tutorial_IRS",
+    "legs": [
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "fixedRate": 0.016,
+        "indexationType": "fixed",
+        "notional": 200000,
+        "payOrRec": "receiving",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      },
+      {
+        "basis": "ACT/365.FIXED",
+        "discountCurve": "discount_Libor_3M",
+        "indexationType": "floating",
+        "notional": 200000,
+        "payOrRec": "paying",
+        "projectionCurve": "projection_Libor_3M",
+        "schedule": [
+          {
+            "endDate": "2017-06-01",
+            "startDate": "2017-03-01"
+          },
+          {
+            "endDate": "2017-09-01",
+            "startDate": "2017-06-01"
+          },
+          {
+            "endDate": "2017-12-01",
+            "startDate": "2017-09-01"
+          },
+          {
+            "endDate": "2018-03-01",
+            "startDate": "2017-12-01"
+          }
+        ]
+      }
+    ]
+  }
+]
